@@ -1,48 +1,68 @@
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromRGBO(92, 46, 171, 1),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: EdgeInsets.all(50),
-                child: Image.asset('assets/images/quiz-logo.png'),
-              ),
-              const Text(
-                'Learn Flutter the fun way!',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                ),
-                child: const Text(
-                  'Start Quiz',
-                  style: TextStyle(fontSize: 20),
-                ),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ),
+        body: MyBody(),
       ),
     );
   }
 }
 
-// class MyBody extends StatelessWidget {
-//   @override
-//   Widget build(context) {
-//     return ;
-//   }
-// }
+class MyBody extends StatelessWidget {
+  const MyBody({super.key});
+
+  @override
+  Widget build(context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 85, 18, 201),
+            Color.fromARGB(255, 106, 58, 190)
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              'assets/images/quiz-logo.png',
+              width: 300,
+            ),
+            const SizedBox(
+              height: 80,
+            ),
+            const Text(
+              'Learn Flutter the fun way!',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
+              child: const Text(
+                'Start Quiz',
+                style: TextStyle(fontSize: 25),
+              ),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
